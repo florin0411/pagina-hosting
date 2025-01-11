@@ -1,120 +1,57 @@
 <!DOCTYPE html>
-<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrazione - Unica</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .form-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            width: 300px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .form-container label {
-            display: block;
-            margin-bottom: 8px;
-            margin-top: 15px;
-        }
-        .form-container input, .form-container button, .form-container textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .form-container button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .form-container button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrazione a Unica</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    .container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #b725b0;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .container button:hover {
+      background-color: #c00e9f;
+    }
+  </style>
 </head>
 <body>
-
-    <div class="form-container" id="first-page">
-        <h2>Accedi a UNICA</h2>
-        <form id="login-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Inserisci il tuo username" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Inserisci la tua password" required>
-
-            <button type="button" id="submit-login">Invia </button>
-        </form>
-    </div>
-
-    <div class="form-container" id="second-page" style="display: none;">
-        <h2>Allega i tuoi dati</h2>
-        <form id="upload-form">
-            <label for="file">Carica un file:</label>
-            <input type="file" id="file" name="file" required>
-
-            <label for="description">Descrizione:</label>
-            <textarea id="description" name="description" placeholder="Inserisci una descrizione" rows="4" required></textarea>
-
-            <button type="button" id="submit-upload">Invia Allegato</button>
-        </form>
-    </div>
-
-    <div class="form-container" id="thank-you-page" style="display: none;">
-        <h2 id="thank-you-message"></h2>
-    </div>
-
-    <script>
-        // Elementi DOM
-        const firstPage = document.getElementById('first-page');
-        const secondPage = document.getElementById('second-page');
-        const thankYouPage = document.getElementById('thank-you-page');
-        const thankYouMessage = document.getElementById('thank-you-message');
-        const loginForm = document.getElementById('login-form');
-        const uploadForm = document.getElementById('upload-form');
-
-        // Event Listener per il primo bottone
-        document.getElementById('submit-login').addEventListener('click', () => {
-            const username = document.getElementById('username').value.trim();
-            if (username) {
-                // Passa alla seconda pagina
-                firstPage.style.display = 'none';
-                secondPage.style.display = 'block';
-            } else {
-                alert('Inserisci il tuo username.');
-            }
-        });
-
-        // Event Listener per il secondo bottone
-        document.getElementById('submit-upload').addEventListener('click', () => {
-            const username = document.getElementById('username').value.trim();
-            const file = document.getElementById('file').files.length > 0;
-            const description = document.getElementById('description').value.trim();
-
-            if (file && description) {
-                // Mostra la pagina di ringraziamento
-                secondPage.style.display = 'none';
-                thankYouMessage.textContent = `Grazie, ${username}!`;
-                thankYouPage.style.display = 'block';
-            } else {
-                alert('Compila tutti i campi per continuare.');
-            }
-        });
-    </script>
-
+  <div class="container">
+    <form>
+      <h2>Accedi a UNICA</h2>
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <input type="file" required>
+      <input type="text" placeholder="Descrizione capolavoro" required>
+      <button type="submit">Invia</button>
+    </form>
+  </div>
 </body>
 </html>
